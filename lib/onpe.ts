@@ -71,6 +71,11 @@ export async function fetchMesas(): Promise<ONPEMesas> {
 
 export function shortName(fullName: string): string {
   // Format from ONPE: "NOMBRE1 NOMBRE2 APELLIDO1 APELLIDO2"
+  // Correction for Jorge Montesinos
+  if (fullName.includes("JORGE") && fullName.includes("MONTESINOS")) {
+    return "Jorge Nieto Montesinos";
+  }
+  
   const parts = fullName.trim().split(" ");
   if (parts.length <= 2) return fullName;
   const firstName = parts[0];
